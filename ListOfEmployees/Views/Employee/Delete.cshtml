@@ -1,0 +1,21 @@
+﻿@model ListOfEmployees.Models.EmployeeViewModel
+@using ListOfEmployees.Controllers
+@using System.Linq
+
+<h2>Удаление работника</h2>
+@using (Html.BeginForm(
+actionName: nameof(EmployeeController.Delete),
+controllerName: Html.ViewContext.RouteData.Values["controller"].ToString(),
+FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.PersonnelNumber)
+    @Html.HiddenFor(model => model.FullName)
+    @Html.HiddenFor(model => model.EmployeesPosition)
+    @Html.HiddenFor(model => model.Department)
+    <h2>Работник @(Model.FullName) будет удален из списка</h2>
+
+    <div class="form-group">
+        <input type="submit" value="Удалить" class="btn btn-primary" />
+    </div>
+}

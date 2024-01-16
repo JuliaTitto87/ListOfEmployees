@@ -1,4 +1,6 @@
-﻿namespace ListOfEmployees.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ListOfEmployees.Models
 {
     public class EmployeeViewModel
     {
