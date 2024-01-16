@@ -1,0 +1,29 @@
+﻿@using ListOfEmployees.Controllers
+@model List<EmployeeViewModel>;
+
+<div>
+    <h2>Список работников </h2>
+<table>
+	<tr>
+		<td><p>  Табельный номер  </p></td>
+		<td><p>  ФИО  </p></td>
+		<td><p>  Подразделение  </p></td>
+		<td><p>  Должность  </p></td>
+	</tr>
+
+	@foreach (var m in Model)
+	{
+		<tr>
+			<td><p>@m.PersonnelNumber</p></td>
+			<td><p>@m.FullName</p></td>
+			<td><p>@m.Department</p></td>
+			<td><p>@m.EmployeesPosition</p></td>
+			<td><p><a href="@Url.Action(nameof(EmployeeController.Edit))/@m.PersonnelNumber"> Изменить </a></p></td>
+			<td><p><a href="@Url.Action(nameof(EmployeeController.Delete))/@m.PersonnelNumber"> Удалить </a></p></td>
+		</tr>
+	}
+    </table>
+</div>
+
+<div style="display:block">
+	<a href="@Url.Action(nameof(EmployeeController.Create))"> Добавить работника </a>
